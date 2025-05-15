@@ -4,8 +4,68 @@
   <meta charset="UTF-8">
   <title>Calculadora de IMC</title>
   <style>
-    body { font-family: Arial; margin: 20px; }
-    input { margin: 5px; padding: 5px; }
+   body {
+    font-family: Arial;
+    margin: 0;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f6f8fa;
+  }
+
+  #formulario {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  #formulario h2 {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin: 10px 0;
+    text-align: left;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+
+  button {
+    margin: 10px 5px 0 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  #tabela-vazia-msg {
+    margin-top: 10px;
+    font-style: italic;
+    color: #888;
+    text-align: center;
+  }
     table { margin-top: 20px; border-collapse: collapse; width: 100%; }
     th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
     th { background-color: #f2f2f2; }
@@ -13,18 +73,18 @@
   </style>
 </head>
 <body>
+  <div id="formulario">
+      <h2>Calculadora de IMC</h2>
 
-  <h2>Calculadora de IMC</h2>
+      <label>Nome: <input type="text" id="nome"></label><br>
+      <label>Altura (m): <input type="number" step="0.01" id="altura"></label><br>
+      <label>Peso (kg): <input type="number" step="0.1" id="peso"></label><br>
 
-  <label>Nome: <input type="text" id="nome"></label><br>
-  <label>Altura (m): <input type="number" step="0.01" id="altura"></label><br>
-  <label>Peso (kg): <input type="number" step="0.1" id="peso"></label><br>
+      <button onclick="calcularIMC()">Calcular IMC</button>
+      <button onclick="inserirNaTabela()">Inserir resultado na Tabela</button>
 
-  <button onclick="calcularIMC()">Calcular IMC</button>
-  <button onclick="inserirNaTabela()">Inserir na Tabela</button>
-
-  <div class="result" id="resultado"></div>
-
+      <div class="result" id="resultado"></div>
+  </div>
   <table>
     <thead>
       <tr>
